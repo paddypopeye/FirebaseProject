@@ -66,6 +66,24 @@ class MainActivity : AppCompatActivity() {
 
                         if(task.isSuccessful){
                             Toast.makeText(applicationContext, "Your Account has been Created", Toast.LENGTH_LONG).show()
+                            val user =  firebaseAuth!!.currentUser!!
+
+                            user.sendEmailVerification().addOnCompleteListener(object: OnCompleteListener<Void>{
+                                override fun onComplete(task: Task<Void>) {
+                                    if(task.isSuccessful){
+                                        Toast.makeText(applicationContext, "Please check your email", Toast.LENGTH_LONG).show()
+                                        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+
+                                    }
+
+                                    else{
+                                        val error = task.exception?.message
+                                        Toast.makeText(applicationContext, "An error occured" + error, Toast.LENGTH_LONG).show()
+
+                                    }
+                                }
+
+                            })
                         }
                         else{
                             val error = task.exception?.message
