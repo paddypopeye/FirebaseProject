@@ -1,5 +1,6 @@
 package com.example.firebaseproject
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -16,16 +17,17 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     private var signup_btn: Button? = null
+    private var login_btn:Button? = null
     private var user_email_editText: EditText? = null
     private var user_password_editText: EditText? = null
     private var firebaseAuth: FirebaseAuth? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         signup_btn = findViewById<Button>(R.id.btn_sign_up)
+        login_btn = findViewById<Button>(R.id.btn_login)
         user_email_editText = findViewById<EditText>(R.id.user_email)
         user_password_editText = findViewById<EditText>(R.id.user_password)
         FirebaseApp.initializeApp(this);
@@ -33,9 +35,10 @@ class MainActivity : AppCompatActivity() {
 
 
         signup_btn?.setOnClickListener {
-            View.OnClickListener{
                    RegisterNewUser()
-            }
+        }
+        login_btn?.setOnClickListener {
+            LogInFunc()
         }
     }
 
@@ -62,7 +65,7 @@ class MainActivity : AppCompatActivity() {
                     override fun onComplete(task: Task<AuthResult>) {
 
                         if(task.isSuccessful){
-                            Toast.makeText(applicationContext, "Account Created", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "Your Account has been Created", Toast.LENGTH_LONG).show()
                         }
                         else{
                             val error = task.exception?.message
@@ -73,6 +76,10 @@ class MainActivity : AppCompatActivity() {
 
                 })
         }
+    }
+
+    public fun LogInFunc(){
+        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
     }
 }
 
