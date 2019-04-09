@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         returnBtn?.setOnClickListener{
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            startActivity(Intent(this@LoginActivity, PasswordReset::class.java))
         }
 
 
