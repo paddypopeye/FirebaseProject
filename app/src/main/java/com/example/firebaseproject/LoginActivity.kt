@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class LoginActivity : AppCompatActivity() {
+
     private var user_email: EditText? = null
     private var user_password: EditText? = null
     private var loginBtn:Button? = null
@@ -27,12 +28,13 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        user_email = findViewById(R.id.user_email)
-        user_password = findViewById(R.id.user_password)
+        user_email = findViewById(R.id.user_email_login)
+        user_password = findViewById(R.id.user_password_login)
         loginBtn = findViewById(R.id.button_loginActivity)
         returnBtn = findViewById(R.id.btn_goBack)
         FirebaseApp.initializeApp(this)
         firebaseAuth = FirebaseAuth.getInstance()
+
 
         loginBtn?.setOnClickListener{
             LoginUser()
@@ -40,11 +42,7 @@ class LoginActivity : AppCompatActivity() {
 
         returnBtn?.setOnClickListener{
             Reset()
-
         }
-
-
-
     }
 
      fun LoginUser(){
@@ -64,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                 override fun onComplete(task: Task<AuthResult>) {
                     if(task.isSuccessful){
                         Toast.makeText(applicationContext, "You are now logged in", Toast.LENGTH_LONG).show()
-                        val user:FirebaseUser =  firebaseAuth?.currentUser!!
+                        val user:FirebaseUser =  firebaseAuth!!.currentUser!!
                         if(user.isEmailVerified){
                             Toast.makeText(applicationContext, "The account has been verified", Toast.LENGTH_LONG).show()
                             startActivity(Intent(this@LoginActivity, TestActivity::class.java))
@@ -77,6 +75,7 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     else {
+
                         val error = task.exception?.message
 
                         Toast.makeText(applicationContext, "Something went wrong pleasse try again..." + error, Toast.LENGTH_LONG).show()
@@ -87,11 +86,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-
     public fun Reset() {
 
         startActivity(Intent(this@LoginActivity, PasswordReset::class.java))
     }
-
-
 }
