@@ -16,5 +16,8 @@ class TestActivity : AppCompatActivity() {
     public fun changeEmail_btn(view: View){
         startActivity(Intent(this@TestActivity, changeEmail::class.java))
     }
+    public fun submit_profile(view: View){
+        startActivity(Intent(this@TestActivity, ProfileActivity::class.java))
+    }
 }
 

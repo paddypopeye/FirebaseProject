@@ -3,4 +3,5 @@
     <string name="add_password">Add Password</string>
     <string name="your_email">Your Email</string>
     <string name="create_an_account">Create an Account</string>
+    <string name="enter_your_profile_inforation_below">Enter your profile inforation below</string>
 </resources>

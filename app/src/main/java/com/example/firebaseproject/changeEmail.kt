@@ -27,7 +27,7 @@ class changeEmail : AppCompatActivity() {
         user_email = findViewById(R.id.email_change)
         user_password = findViewById(R.id.pass_change)
         new_email = findViewById(R.id.email_change_new)
-        change = findViewById(R.id.changeEmail_btn)
+        change = findViewById(R.id.changeEmail)
         firebaseAuth = FirebaseAuth.getInstance()
         user = firebaseAuth?.currentUser!!
 

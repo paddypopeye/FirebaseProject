@@ -56,6 +56,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/changeEmail"
             android:layout_below="@+id/ll_changeEmail"
-            android:background="#00f" android:textSize="24sp" android:textStyle="italic" android:textColor="#f00"
-            android:onClick="updateEmail"/>
+            android:background="#00f" android:textSize="24sp" android:textStyle="italic" android:textColor="#f00"/>
 </RelativeLayout>

@@ -9,7 +9,6 @@
         android:background="#f00">
 
 
-
     <Button
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -19,6 +18,19 @@
             android:textSize="20sp"
             android:textColor="#fff"
             android:background="#000"
-            android:textStyle="italic"
-            android:onClick="changeEmail_btn"/>
+            android:textStyle="italic" android:layout_margin="10dp"/>
+
+    <Button
+            android:layout_margin="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/submit_profile"
+            android:text="Add your profile information"
+            android:layout_below="@id/changeEmail_btn"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:background="#000"
+            android:textStyle="italic" android:layout_marginTop="10dp" android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp" android:layout_marginBottom="10dp"/>
 </RelativeLayout>
