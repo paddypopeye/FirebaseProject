@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseApp.initializeApp
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
@@ -31,13 +30,13 @@ class MainActivity : AppCompatActivity() {
         login_btn = findViewById(R.id.btn_login)
         user_email_editText = findViewById(R.id.user_email)
         user_password_editText = findViewById(R.id.user_password)
-        initializeApp(this);
+        FirebaseApp.initializeApp(this);
         firebaseAuth = FirebaseAuth.getInstance()
-
 
         signup_btn?.setOnClickListener {
                    RegisterNewUser()
         }
+
         login_btn?.setOnClickListener {
             LogInFunc()
         }

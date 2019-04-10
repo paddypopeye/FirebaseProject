@@ -19,5 +19,8 @@ class TestActivity : AppCompatActivity() {
     public fun submit_profile(view: View){
         startActivity(Intent(this@TestActivity, ProfileActivity::class.java))
     }
+    public fun changeInfo(view: View){
+        startActivity(Intent(this@TestActivity, ProfileActivity::class.java))
+    }
 }
 

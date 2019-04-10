@@ -6,6 +6,7 @@ import android.text.TextUtils
 import android.widget.*
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -29,6 +30,7 @@ class ProfileActivity : AppCompatActivity() {
         last_name = findViewById(R.id.last_name)
         user_name = findViewById(R.id.user_name)
         submit = findViewById(R.id.submit_profile)
+        FirebaseApp.initializeApp(this)
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseAuth?.currentUser!!.uid)
 
@@ -51,10 +53,7 @@ class ProfileActivity : AppCompatActivity() {
 
             Toast.makeText(applicationContext, "The last name cannot be empty", Toast.LENGTH_LONG).show()
             }
-            else if(TextUtils.isEmpty(userName)){
 
-            Toast.makeText(applicationContext, "The user name cannot be empty", Toast.LENGTH_LONG).show()
-            }
             else{
 
                 val userinfo = HashMap<String,Any>()

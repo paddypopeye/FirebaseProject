@@ -33,4 +33,16 @@
             android:background="#000"
             android:textStyle="italic" android:layout_marginTop="10dp" android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp" android:layout_marginBottom="10dp"/>
+
+    <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/changeInfo"
+            android:text="Change Profile Info"
+            android:layout_below="@id/submit_profile"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:background="#000"
+            android:textStyle="italic" android:layout_margin="10dp"/>
 </RelativeLayout>
