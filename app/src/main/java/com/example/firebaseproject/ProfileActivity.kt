@@ -17,7 +17,7 @@ class ProfileActivity : AppCompatActivity() {
     var last_name : EditText? = null
     var user_name : EditText? = null
     var submit : Button? = null
-    var firebaseAuth:FirebaseAuth? = null
+    var firebaseAuth : FirebaseAuth? = null
     var firebaseDatabase: DatabaseReference? = null
 
 
@@ -30,9 +30,8 @@ class ProfileActivity : AppCompatActivity() {
         last_name = findViewById(R.id.last_name)
         user_name = findViewById(R.id.user_name)
         submit = findViewById(R.id.submit_profile)
-        FirebaseApp.initializeApp(this)
         firebaseAuth = FirebaseAuth.getInstance()
-        firebaseDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseAuth?.currentUser!!.uid)
+        firebaseDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseAuth!!.currentUser!!.uid)
 
 
         submit?.setOnClickListener {
