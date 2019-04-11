@@ -22,5 +22,9 @@ class TestActivity : AppCompatActivity() {
     public fun changeInfo(view: View){
         startActivity(Intent(this@TestActivity, ProfileActivity::class.java))
     }
+
+    public fun storage(view: View){
+        startActivity(Intent(this@TestActivity, StorageActivity::class.java))
+    }
 }
 
